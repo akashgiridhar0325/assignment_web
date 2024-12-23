@@ -16,11 +16,13 @@ Create a web application with a visually appealing login and sign-up interface, 
 2. Implemented **React state** and **useEffect hooks** for dynamic validation of email and password.
 3. Used **Tailwind CSS** for responsive and modern styling of the UI elements.
 4. Designed real-time validation feedback for both the email and password fields.
+5. Used the next/navigation package for routing in Client Components.
 
 ## Execution
 - **Screens**:
   - **Login**: Users can log in with valid credentials (email and password).
   - **Sign Up**: New users can sign up with email and password, with real-time feedback for password strength.
+  - **Home**: After a successful login, users are redirected to a protected home page.
 - **Validation**:
   - Email validation checks for correct format and availability (UI feedback).
   - Password validation checks for length, special character, number, and uppercase letter.
@@ -33,6 +35,7 @@ Create a web application with a visually appealing login and sign-up interface, 
   - `react`
   - `react-dom`
   - `tailwindcss`
+- Backend to be running. You can find the repo for the same on my github profile under the repo called assignment_backend. Follow the instructions given there and run the backend
 
 ## Installation
 1. Clone the repository:
@@ -53,23 +56,33 @@ Create a web application with a visually appealing login and sign-up interface, 
 2. Navigate between the login and sign-up screens.
 3. Enter a valid email and a password that meets all the criteria to successfully sign up or log in.
 4. Observe real-time validation feedback on both the email and password fields.
+5. After logging in, you will be redirected to the Home page, which is a protected page accessible only to logged-in users.
 
 ## Project Structure
 ```
 src/
-|-- components/
-|   |-- SignUpForm.tsx
-|   |-- LoginForm.tsx
-|-- pages/
-|   |-- index.tsx
-|   |-- login.tsx
-|   |-- signup.tsx
+|-- app/
+|   |-- auth/            
+|   |   |-- login/   
+|   |   |   |-- page.tsx    
+|   |   |-- signup/       
+|   |   |   |-- page.tsx     
+|   |   |-- components/    
+|   |   |   |-- SignUpForm.tsx
+|   |   |   |-- LoginForm.tsx
+|   |   |   |-- QRCodeLogin.tsx
+|   |   |   |-- PasswordStrengthChecker.tsx
+|   |-- home/               
+|   |   |-- page.tsx        
+|-- utils/                   
+|   |-- api.ts               
+|   |-- validatePassword.ts  
 |-- styles/
-|   |-- globals.css
-|   |-- tailwind.config.js
+|   |-- globals.css          
+|   |-- tailwind.config.js   
 |-- public/
-|   |-- assets/
-|-- next.config.js
+|   |-- assets/             
+|-- next.config.js          
 ```
 
 ## Learn More
@@ -92,11 +105,23 @@ To learn more about Next.js, check out the following resources:
 
 ![alt text](image-1.png)
 
-3. Alternate login option : QR Code
+Enter a valid email and password to login. Here is an example user stored in mongodb : 
+
+![alt text](image-5.png)
+
+Upon entering the correct combination of email and password, you will get a success message : 
+
+![alt text](image-6.png)
+
+3. Home Page after logging in : 
+
+![alt text](image-7.png)
+
+4. Alternate login option : QR Code
 
 ![alt text](image-2.png)
 
-4. Sign up page : 
+5. Sign up page : 
 
 ![alt text](image-3.png)
 
@@ -104,7 +129,3 @@ Once you enter all fields correctly, you will be able to sign up.
 
 ![alt text](image-4.png)
 
-
-## Future considerations 
-- Validation to check if email exists or not
-- Connect to database to keep track of all signed up users.
